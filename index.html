@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Shivang Brahmbhatt's Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom Styles -->
+    <style>
+      body {
+        background: #f0f8ff;
+      }
+      h2.text-primary {
+        color: #2c3e50 !important;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .btn-primary {
+        background-color: #e67e22;
+        border-color: #e67e22;
+      }
+      .btn-success {
+        background-color: #27ae60;
+        border-color: #27ae60;
+      }
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Root container for React app -->
+    <div id="root"></div>
+
+    <!-- React, ReactDOM, and Babel -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <!-- React App Code -->
+    <script type="text/babel">
+      // Navbar Component using Bootstrap classes
+      function Navbar() {
+        return (
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div className="container">
+              <a className="navbar-brand" href="#">
+                Shivang Brahmbhatt's Portfolio
+              </a>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="#summary">
+                      Summary
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#education">
+                      Education
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#skills">
+                      Skills
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#projects">
+                      Projects
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#resume">
+                      Resume
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#contact">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        );
+      }
+
+      // Summarizing Statement Component
+      function Summary() {
+        return (
+          <section id="summary" className="py-5">
+            <h2 className="text-primary">Summarizing Statement</h2>
+            <p>
+              Hello! My name is Shivang Brahmbhatt,  a passionate Computer System Technician who thrives on transforming complex challenges into elegant, scalable solutions. My technical journey spans from mastering advanced algorithms and data structures to harnessing modern frameworks like React and Node.js for dynamic, interactive web experiences. With hands-on expertise in microservices architecture, containerization, and cloud-based deployments, I build robust systems that deliver high performance and reliability. Explore my projects to see how I merge innovative design with technical rigor, pushing the boundaries of what’s possible in the digital realm..
+            </p>
+          </section>
+        );
+      }
+
+      // Education Component
+      function Education() {
+        return (
+          <section id="education" className="py-5">
+            <h2 className="text-primary">Education</h2>
+            <p>
+              <strong>[Mohawk college]</strong> – Computer System Technician (Software Support), [2025]
+            </p>
+            <p>
+              Relevant coursework: Data Structures, Algorithms, Web Development,Distributed Systems & Cloud Computing, Database Systems, Machine Learning & Artificial Intelligence.
+            </p>
+          </section>
+        );
+      }
+
+      // Skills Component
+      function Skills() {
+        return (
+          <section id="skills" className="py-5">
+            <h2 className="text-primary">Skills</h2>
+            <ul>
+              <li>HTML5, CSS3, JavaScript</li>
+              <li>React, Angular, Vue</li>
+              <li>Node.js, Express, MongoDB</li>
+              <li>UI/UX Design & Responsive Web Design</li>
+              <li>MySQL, PostgreSQL, MongoDB, Redis, SQLite</li>
+              <li>RESTful API design, GraphQL</li>
+              <li>Unit Testing (Jest, Mocha), Integration Testing, End-to-End Testing (Selenium, Cypress)
+
+</li>
+              <li>React Native, Flutter</li>
+            </ul>
+          </section>
+        );
+      }
+
+      // Projects Component with interactive cards
+      function Projects({ projects, onOpenModal }) {
+        return (
+          <section id="projects" className="py-5">
+            <h2 className="text-primary">Projects</h2>
+            <div className="row">
+              {projects.map((project) => (
+                <div key={project.id} className="col-md-6 mb-4">
+                  <div className="card h-100 shadow-sm">
+                    <div className="card-body">
+                      <h5 className="card-title">{project.title}</h5>
+                      <p className="card-text">{project.description}</p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => onOpenModal(project)}
+                      >
+                        View Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      }
+
+      // Resume Component
+      function Resume() {
+        return (
+          <section id="resume" className="py-5">
+            <h2 className="text-primary">Resume</h2>
+            <p>
+              Download my resume:{" "}
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
+            </p>
+          </section>
+        );
+      }
+
+      // Contact Component with a Bootstrap form
+      function Contact({ onSubmit }) {
+        return (
+          <section id="contact" className="py-5">
+            <h2 className="text-primary">Contact Information</h2>
+            <p>
+              Email:{" "}
+              <a href="Shivangbarot27@gmail.com">
+                Shivangbarot27@gmail.com
+              </a>
+            </p>
+            <p>
+              LinkedIn:{" "}
+              <a
+                href="https://www.linkedin.com/in/shivang-brahmbhatt-b3a2371ba/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Shivang Brahmbhatt
+              </a>
+            </p>
+            <p>
+              GitHub:{" "}
+              <a
+                href="https://github.com/Shivang-brahmbhatt"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Shivang-brahmbhatt
+              </a>
+            </p>
+            <div className="mt-4">
+              <h4>Contact Me</h4>
+              <form onSubmit={onSubmit}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    className="form-control"
+                    placeholder="Your Message"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn btn-success">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </section>
+        );
+      }
+
+      // Custom Modal Component for project details
+      function ProjectModal({ project, onClose }) {
+        return (
+          <div
+            className="modal show"
+            style={{ display: "block", backgroundColor: "rgba(0,0,0,0.8)" }}
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">{project.title}</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={onClose}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p>{project.details}</p>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={onClose}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      // Footer Component
+      function Footer() {
+        return (
+          <footer className="bg-dark text-white text-center py-3 mt-5">
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+          </footer>
+        );
+      }
+
+      // Main App Component assembling all sections
+      function App() {
+        const [modalData, setModalData] = React.useState(null);
+
+        const projects = [
+          {
+            id: 1,
+            title: " E-commerce Platform",
+            description:
+              " An e-commerce platform that allows users to customize products online before purchasing. This project demonstrates advanced user interaction through a web interface and efficient backend data management.",
+            details:
+              "Key Features: This e-commerce platform allows users to interactively customize products, featuring live visual updates and dynamic pricing adjustments. It supports user account creation for saving designs, integrates a shopping cart, and is optimized for seamless mobile and desktop use. , Technologies Used: The front-end is crafted using HTML, CSS, and JavaScript, enhanced with jQuery for responsive interactions and AJAX for asynchronous data handling. The back-end is powered by PHP, managing sessions, user interactions, and data processing, with MySQL serving as the database for storing product details, user data, and customization options.",
+              
+          },
+          { 
+            id: 2,
+            title: " Map Application",
+            description:
+              "An Interactive Map Dashboard designed for users to visualize data geographically, explore points of interest, and receive real-time updates about various locations. This application is ideal for use in sectors such as tourism, real estate, or urban planning, where geographic data visualization is crucial..",
+            details:
+              "The Interactive Map Dashboard is a React.js-based application designed for real-time geographic data visualization and user interaction. Key Features include data overlays (such as traffic, weather, and population), searchable and filterable points of interest, user annotations and saved routes, and dynamic route planning with options to modify for preferences like avoiding tolls. Technologies Used encompass React.js for the frontend, Leaflet.js for interactive map functionalities, Redux for state management, Material-UI for UI components, Node.js and Express for the backend, MongoDB for data storage, Google Maps API for comprehensive mapping tools, and Socket.IO for real-time updates. This project illustrates an advanced integration of APIs, responsive design, and real-time web technologies to provide a valuable tool for any data-driven geographic application.",
+          },
+         
+        ];
+
+        const openModal = (project) => {
+          setModalData(project);
+        };
+
+        const closeModal = () => {
+          setModalData(null);
+        };
+
+        const handleContactSubmit = (e) => {
+          e.preventDefault();
+          alert("Thank you for your message!");
+          e.target.reset();
+        };
+
+        return (
+          <div>
+            <Navbar />
+            <div className="container mt-5 pt-4">
+              <Summary />
+              <Education />
+              <Skills />
+              <Projects projects={projects} onOpenModal={openModal} />
+              <Resume />
+              <Contact onSubmit={handleContactSubmit} />
+            </div>
+            {modalData && (
+              <ProjectModal project={modalData} onClose={closeModal} />
+            )}
+            <Footer />
+          </div>
+        );
+      }
+
+      // Render the App component
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <App />
+      );
+    </script>
+  </body>
+</html>
